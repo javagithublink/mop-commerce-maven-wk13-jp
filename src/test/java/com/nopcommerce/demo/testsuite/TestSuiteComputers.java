@@ -23,10 +23,21 @@ public class TestSuiteComputers extends TestBase {
 
 
     @Test
+    public void verifyProductArrangeInAlphaBaticalOrder() throws InterruptedException{
+        homePage.clickOnDesktopSubTab();
+
+        desktopPage.clickOnSortByZtoAAndVerifyBestSellers();
+
+    }
+
+
+    @Test
     public void verifyProductAddedToShoppingCartSuccessfully() throws InterruptedException {
         homePage.clickOnDesktopSubTab();
+
         desktopPage.clickOnBuildYourOwnComputer();
         Thread.sleep(1000);
+
         buildYourOwnComputerPage.verifyUserOnBuildYourOwnComputerPage();
         buildYourOwnComputerPage.selectComputerSpecification();
         Thread.sleep(1000);
@@ -42,19 +53,18 @@ public class TestSuiteComputers extends TestBase {
         Thread.sleep(1000);
         checkOutSignInPage.verifyUserIsOnCheckOutSignInPage(); // change need to be validated
         checkOutSignInPage.clickOnCheckOutAsGuest();
-
         checkOutPage.addBillingAddressForGuest();
-
         checkOutPage.addShippingMethod();
         checkOutPage.addPaymentMethod();
         checkOutPage.addPaymentInformation();
-
         checkOutPage.verifyOrder("$2,950.00"); // change need to be validated
 
         orderSuccessPage.verifyOrderPlacedSuccessfully();
 
 
     }
+
+
 
 
 }
